@@ -1,0 +1,54 @@
+
+
+
+<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-12">
+  <div class="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
+    <div class="mx-auto flex w-full max-w-md flex-col space-y-16">
+      <div class="flex flex-col items-center justify-center text-center space-y-2">
+        <div class="font-semibold text-3xl">
+          <p>Email Verification</p>
+        </div>
+        <div class="flex flex-col  font-medium">
+          <p class="text-grey-400 text-sm">We have sent a code to your email ba**@dipainhouse.com</p>
+          <h4 *ngIf="error" class=" text-red-600 text-xs">Please enter the currect one</h4>
+        </div>
+      </div>
+      <div>
+          <div class="flex flex-col space-y-16">
+            <div class="flex flex-row items-center justify-between mx-auto w-full max-w-xs">
+              <ngx-otp-input
+              [config]="otpInputConfig"
+              (otpChange)="handleOtpChange($event)"
+              (fill)="handleFillEvent($event)"
+              [ngStyle]="{'border-red-500': error}"
+              >
+              </ngx-otp-input>
+              
+            </div>
+           
+            <div class=" space-y-5">
+            
+              <div class=" items-center justify-center text-center text-sm font-medium  text-gray-500">
+                <div class="flex flex-row  justify-center ">
+                  <p class="text-cyan-600 pr-2" *ngIf="countEnd">otp is Expires for next</p>
+                  <p class="text-red-600 pr-2" *ngIf="!countEnd">otp is Expired</p>
+                 
+                  <countdown  #cd [config]="config" (event)="handleEvent($event)" ></countdown>
+                  
+                </div>
+             
+               
+                <p>Didn't recieve code?</p>
+                
+                <button class="justify-center items-center text-blue-600" (click)="cd.restart()" target="_blank" rel="noopener noreferrer" [disabled]="countEnd">Resend</button>
+              </div>
+              <div class="items-center justify-center text-center text-sm font-medium  text-cyan-500">
+                <p class="items-center justify-center">verify through the email link</p>
+               </div>
+            </div>
+          </div>
+     
+      </div>
+    </div>
+  </div>
+</div>
