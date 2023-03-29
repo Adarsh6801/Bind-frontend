@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
   submit(){
     this.isSubmitted=true;
     if(this.loginForm.invalid) return;
-   console.log(this.loginForm);
+   console.log(this.loginForm.value);
    
   }
 }

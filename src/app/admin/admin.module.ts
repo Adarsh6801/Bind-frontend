@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AdminComponent } from './admin.component';
 
 
 
 @NgModule({
   declarations: [
-    PageNotFoundComponent
+    AdminComponent
   ],
   imports: [
     CommonModule
   ]
 })
-export class NotFoundModule { }
+export class AdminModule { }

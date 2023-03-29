@@ -6,10 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  home:boolean=false;
-  course:boolean=false;
-  mentor:boolean=false;
-  aboutus:boolean=false;
-  title = 'app';
-
+home:boolean=false;
+students:boolean=false;
+aboutus:boolean=false;
 }

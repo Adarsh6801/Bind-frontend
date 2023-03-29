@@ -3,10 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { LandingPageComponent } from './common/landing-page/landing-page.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
+import { MentorComponent } from './mentor/mentor.component';
 import { HomeComponent } from './user/home/home.component';
+
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
+  {
+    path:'',component:LandingPageComponent
+  },
+
   {
     path: 'auth',
     component: AuthComponent,
@@ -19,10 +27,10 @@ const routes: Routes = [
     path:'user',
     component:UserComponent,
     children:[
+      { path:'home',component:HomeComponent }
       
-      {path:'home',component:HomeComponent}
     ]
-  }
+  },
 ];
 
 @NgModule({
