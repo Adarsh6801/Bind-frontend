@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUserLogin } from '../../shared/interfaces/IuserLogin'
+import { AuthServicesService } from '../auth-services.service';
+import { Message } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +17,10 @@ export class RegisterComponent implements OnInit {
   submitted:boolean=false;
   loader:boolean=false;
   conformPass:boolean=false;
+  messages2!: Message[];
 
 
-  constructor(private formBuilder:FormBuilder){ }
+  constructor(private formBuilder:FormBuilder,private authService:AuthServicesService, private router:Router){ }
 
   ngOnInit(): void {
     //validators
@@ -41,6 +45,19 @@ export class RegisterComponent implements OnInit {
       this.conformPass=false;
       this.loader=true;
       console.log(this.registerForm.value);
+      this.authService.register(this.registerForm.value).subscribe((data)=>{
+        console.log(data,'dataaaa regis');
+        
+       if(data.status){
+        this.router.navigateByUrl('/auth/otpverify')
+       }
+       else{
+        this.messages2 = [
+          { severity: 'error', detail: data.error },
+      ];
+      this.loader=false;
+       }
+      })
       
     }
   }

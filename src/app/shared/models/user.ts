@@ -8,4 +8,7 @@ export class User{
     isMentor!:boolean;
     userStatus!:boolean;
     phone!:number;
+    status!:boolean;
+    error!:string;
+    otp!:number;
 }

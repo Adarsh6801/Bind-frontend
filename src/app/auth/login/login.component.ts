@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { AuthServicesService } from '../auth-services.service';
+import {Router} from "@angular/router"
+import { Message } from 'primeng/api';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit{
   loginForm!:FormGroup;
   isSubmitted=false;
-  constructor(private formBuilder:FormBuilder){}
+  error:string=''
+  messages2!: Message[];
+  constructor(private formBuilder:FormBuilder, private authService:AuthServicesService, private router :Router ){}
   ngOnInit(): void {
    this.loginForm=this.formBuilder.group({
     email:['',[Validators.required,Validators.email]],
@@ -22,7 +26,24 @@ export class LoginComponent implements OnInit{
   submit(){
     this.isSubmitted=true;
     if(this.loginForm.invalid) return;
-   console.log(this.loginForm.value);
+    this.authService.login(this.loginForm.value).subscribe((data)=>{
+      
+      if(data.status){
+        if(data.isAdmin){
+
+        }else if(data.isMentor){
+this.router.navigateByUrl('/mentor/home')
+        }else{
+          this.router.navigateByUrl('/user/home')
+        }
+      }else{
+        this.messages2 = [
+          { severity: 'error', summary:'Error', detail: data.error },
+      ];
+      }
+      
+      
+    })
    
   }
 }

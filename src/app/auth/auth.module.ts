@@ -13,6 +13,9 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
 import { CountdownModule } from 'ngx-countdown';
 import { AuthComponent } from './auth.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { MessagesModule } from 'primeng/messages';
+// import Swal from 'sweetalert2';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     EmailOtpComponent,
     AuthComponent,
+    
+    
     
    
   ],
@@ -34,6 +39,10 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     NgxOtpInputModule,
     CountdownModule,
+    HttpClientModule,
+    MessagesModule
+    
+    
    
   ],
   exports:[
