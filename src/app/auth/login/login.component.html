@@ -27,7 +27,7 @@
           <hr class="border-gray-400">
         </div>
   
-        <app-login-social></app-login-social>
+        <app-login-social (userBlockError)="errorMsg($event)"></app-login-social>
   
         <div class="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
           <a href="#">Forgot your password?</a>

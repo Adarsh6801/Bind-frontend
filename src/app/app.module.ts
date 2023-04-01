@@ -35,7 +35,8 @@ import { AnimateModule } from 'primeng/animate';
     AnimateModule
     
     ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

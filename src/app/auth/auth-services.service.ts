@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { OTP_EXPIRES_URL, OTP_RESEND_URL, OTP_VERIFY_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { OTP_EXPIRES_URL, OTP_RESEND_URL, OTP_VERIFY_URL, SOCIAL_LOGIN_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IuserLogin';
 import { IUserRegister } from '../shared/interfaces/IuserRegister';
 import { User } from '../shared/models/user';
@@ -32,5 +32,9 @@ export class AuthServicesService {
   }
   otpResend():Observable<any>{
     return this.http.get(OTP_RESEND_URL)
+  }
+  socialLogin(socialUser:any):Observable<User>{
+    console.log(socialUser,"asdfaasdf");
+    return this.http.post<User>(SOCIAL_LOGIN_URL,socialUser)
   }
 }

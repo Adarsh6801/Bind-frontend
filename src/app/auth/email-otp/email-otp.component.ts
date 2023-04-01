@@ -51,8 +51,6 @@ export class EmailOtpComponent {
     this.enterOtp = {
       otp: value,
     };
-    console.log(this.enterOtp);
-    console.log(typeof value);
     this.authService.otpVerification(this.enterOtp).subscribe((data) => {
       if (data.status) {
         this.router.navigateByUrl('/auth/login');

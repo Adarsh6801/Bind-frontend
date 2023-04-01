@@ -15,7 +15,12 @@ import { AuthComponent } from './auth.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
-// import Swal from 'sweetalert2';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -40,14 +45,37 @@ import { MessagesModule } from 'primeng/messages';
     NgxOtpInputModule,
     CountdownModule,
     HttpClientModule,
-    MessagesModule
-    
-    
-   
+    MessagesModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule
+  ],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '470281030037-u1lk6olst2iqrr1jheevjij3vu1di7aa.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('470281030037-u1lk6olst2iqrr1jheevjij3vu1di7aa.apps.googleusercontent.com')
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
   ],
   exports:[
     RegisterComponent,
-    EmailOtpComponent
+    EmailOtpComponent,
+
   ]
 })
 export class AuthModule { }

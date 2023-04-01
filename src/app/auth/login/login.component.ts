@@ -46,4 +46,9 @@ this.router.navigateByUrl('/mentor/home')
     })
    
   }
+  errorMsg(err:any){
+    this.messages2 = [
+      { severity: 'error', summary:'Error', detail: err },
+  ];
+  }
 }
