@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServicesService } from 'src/app/auth/auth-services.service';
 
 @Component({
   selector: 'app-header',
@@ -12,4 +13,6 @@ export class HeaderComponent {
   aboutus:boolean=false;
   title = 'app';
 
+  constructor(public authservice :AuthServicesService){}
+  
 }

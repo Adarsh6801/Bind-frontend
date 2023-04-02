@@ -21,6 +21,8 @@ import {
 } from '@abacritt/angularx-social-login';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { ForgotChagePassComponent } from './forgot-chage-pass/forgot-chage-pass.component';
+import { AuthGuardGuard } from '../guards/auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,7 @@ import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
     LoginComponent,
     EmailOtpComponent,
     AuthComponent,
-    
-    
-    
-   
+    ForgotChagePassComponent,
   ],
   imports: [
     CommonModule,
@@ -70,7 +69,8 @@ import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
           console.error(err);
         }
       } as SocialAuthServiceConfig,
-    }
+    },
+    AuthGuardGuard
   ],
   exports:[
     RegisterComponent,

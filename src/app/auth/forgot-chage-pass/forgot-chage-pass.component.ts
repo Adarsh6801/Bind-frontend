@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CountdownConfig, CountdownEvent } from 'ngx-countdown';
-import { NgxOtpInputConfig } from 'ngx-otp-input/public-api';
+import { NgxOtpInputConfig } from 'ngx-otp-input';
 import { Message } from 'primeng/api';
 import { AuthServicesService } from '../auth-services.service';
 
 @Component({
-  selector: 'app-email-otp',
-  templateUrl: './email-otp.component.html',
-  styleUrls: ['./email-otp.component.css'],
+  selector: 'app-forgot-chage-pass',
+  templateUrl: './forgot-chage-pass.component.html',
+  styleUrls: ['./forgot-chage-pass.component.css']
 })
-export class EmailOtpComponent {
+export class ForgotChagePassComponent {
   constructor(
     private authService: AuthServicesService,
     private router: Router
@@ -70,29 +70,13 @@ export class EmailOtpComponent {
       this.countEnd = false;
     }
     if (this.notify == 'DONE') {
-      this.authService.otpExpires().subscribe((data) => {
-        if(!data.status){
-          this.messages2 = [
-            { severity: 'error', summary: 'Error', detail: 'Otp is expired' },
-          ];
-          this.messages1=[];
-          this.notify="";
-        }
-      });
+
       
     }
   }
 
   //resend otp
 restart(){
-  this.authService.otpResend().subscribe((data)=>{
-    this.messages2=[]
-    console.log(data);
-    if(data.status){
-      this.messages1 = [
-        { severity: 'success', summary: 'Success', detail: "Email sent Succesfuly" },
-    ];
-    }
-  })
+
 }
 }

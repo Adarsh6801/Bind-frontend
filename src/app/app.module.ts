@@ -14,6 +14,13 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AnimateModule } from 'primeng/animate';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { TokenInterceptorService } from './interceptor/token-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,11 +30,15 @@ import { AnimateModule } from 'primeng/animate';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+
+    AppRoutingModule,
+
     AuthModule,
     UserModule,
     MentorModule,
+    AdminModule,
+
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
@@ -36,6 +47,12 @@ import { AnimateModule } from 'primeng/animate';
     
     ],
   providers: [
+    AuthGuardGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -5,11 +5,11 @@ import { EmailOtpComponent } from './auth/email-otp/email-otp.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LandingPageComponent } from './common/landing-page/landing-page.component';
-import { NotFoundComponent } from './common/not-found/not-found.component';
-import { MentorComponent } from './mentor/mentor.component';
 import { HomeComponent } from './user/home/home.component';
 
 import { UserComponent } from './user/user.component';
+import { ForgotChagePassComponent } from './auth/forgot-chage-pass/forgot-chage-pass.component';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
 
 const routes: Routes = [
   {
@@ -22,7 +22,8 @@ const routes: Routes = [
     children: [
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'otpverify',component:EmailOtpComponent}
+      { path: 'otpverify',component:EmailOtpComponent},
+      { path: 'changepass',component:ForgotChagePassComponent}
     ],
   },
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
     children:[
       { path:'home',component:HomeComponent }
       
-    ]
+    ],canActivate:[AuthGuardGuard]
   },
 ];
 

@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit{
       
       if(data.status){
         if(data.isAdmin){
+          this.router.navigateByUrl('/admin/home')
 
         }else if(data.isMentor){
 this.router.navigateByUrl('/mentor/home')
