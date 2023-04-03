@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-header.component.css']
 })
 export class AdminHeaderComponent {
-
+  onMenuItemClick(item: string) {
+    console.log(`Clicked ${item}`);
+    // do something else here
+  }
 }

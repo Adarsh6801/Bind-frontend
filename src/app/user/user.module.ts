@@ -15,6 +15,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { FooterComponent } from './footer/footer.component';
 import { AuthServicesService } from 'src/app/auth/auth-services.service';
 import { AuthModule } from '../auth/auth.module';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthModule } from '../auth/auth.module';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
+    CarouselComponent,
     
   ],
   providers: [
