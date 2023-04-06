@@ -1,0 +1,112 @@
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
+        <label for="table-search" class="sr-only">Search</label>
+
+    </div>
+    <p-button (click)="showDialog()" label="Mentor Requests">
+        <i class="pi pi-bell text-3xl" pBadge value={{requestNumber}}></i></p-button>
+    <p-dialog header="New Mentor Requests" [(visible)]="visible" [style]="{ width: '50vw', height: '300px' }">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <div class="card justify-center">
+                    <p-messages [(value)]="messages1" [enableService]="false" [closable]="false"></p-messages>
+                </div>
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Specialisation
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Accept
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Decline
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let mentor of requestMentors">
+                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <img class="w-10 h-10 rounded-full" src="{{mentor.userId.profilePhotoUrl}}" alt="Jese image">
+                            <div class="pl-3">
+                                <div class="text-base font-semibold">{{mentor.userId.name}}</div>
+                                <div class="font-normal text-gray-500">{{mentor.userId.email}}</div>
+                            </div>
+                        </th>
+                        <td class="px-6 py-4">
+                        Backend
+                        </td>
+                        <td class="px-6 py-4">
+                            <a  class="font-medium text-green-600 dark:text-blue-500 hover:underline" (click)="acceptUser(mentor._id)">Accept user</a>
+                        </td>
+                        <td class="px-6 py-4">
+                            <a  class="font-medium text-red-600 dark:text-blue-500 hover:underline" (click)="declineUser(mentor._id)">Decline user</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</p-dialog>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="p-4">
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Main Course
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Remove Mentor
+                </th>
+            </tr>
+        </thead>
+        
+<div class="card justify-center">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>
+        <tbody *ngFor="let user of mentors">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <a href="">
+                    <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                        <img class="w-10 h-10 rounded-full" src="{{user.userId.profilePhotoUrl}}" alt="Jese image">
+                        <div class="pl-3">
+                            <div class="text-base font-semibold">{{user.userId.name}}</div>
+                            <div class="font-normal text-gray-500">{{user.userId.email}}</div>
+                        </div>  
+                    </th>
+                </a>
+
+                <td class="px-6 py-4">
+                    {{user.userId.currentCourse}}
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Online
+                    </div>
+                </td>
+                <td class="px-6 py-4" >
+                   
+                    <button (click)="toggleBlockMentor(user)">
+                        {{ user.userId.status ? 'Block' : 'Unblock' }}
+                      </button>
+                </td>
+                <td class="px-6 py-4" >
+                   
+                    <button (click)="MentorRemove(user)">
+                        {{ user.isMentor ? 'Remove' : '' }}
+                      </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

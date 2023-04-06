@@ -9,3 +9,25 @@ export const OTP_VERIFY_URL=BASE_URL+AUTH_USER_MENTOR+'/email-verify'
 export const OTP_EXPIRES_URL=BASE_URL+AUTH_USER_MENTOR+'/otp-expires'
 export const OTP_RESEND_URL=BASE_URL+AUTH_USER_MENTOR+'/email-resend'
 export const SOCIAL_LOGIN_URL=BASE_URL+AUTH_USER_MENTOR+'/social-login'
+
+const ADMIN_MANAGEMENT='/admin'
+
+const ADMIN_USER=ADMIN_MANAGEMENT+'/user'
+export const GET_ALL_USERS=BASE_URL+ADMIN_USER+'/get-all-users'
+export const BLOCK_USER=BASE_URL+ADMIN_USER+'/block'
+export const UNBLOCK_USER=BASE_URL+ADMIN_USER+'/unblock'
+
+const ADMIN_MENTOR=ADMIN_MANAGEMENT+'/mentor'
+export const GET_ALL_MENTORS=BASE_URL+ADMIN_MENTOR+'/get-all-mentors'
+export const BLOCK_MENTOR=BASE_URL+ADMIN_MENTOR+'/block'
+export const UNBLOCK_MENTOR=BASE_URL+ADMIN_MENTOR+'/unblock'
+export const REMOVE_MENTOR=BASE_URL+ADMIN_MENTOR+'/remove-mentor'
+export const GET_ALL_MENTOR_REQUESTS=BASE_URL+ADMIN_MENTOR+'/mentor-requests'
+export const ACCEPT_MENTOR=BASE_URL+ADMIN_MENTOR+'/mentor-request-accept'
+export const DECLINE_MENTOR=BASE_URL+ADMIN_MENTOR+'/mentor-request-decline'
+
+
+
+
+
+

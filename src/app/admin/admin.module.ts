@@ -14,6 +14,15 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { UsersListComponent } from './users-list/users-list.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { FormsModule } from '@angular/forms';
+import { MessagesModule } from 'primeng/messages';
+import { MentorListComponent } from './mentor-list/mentor-list.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
   declarations: [
@@ -21,6 +30,8 @@ import {MatListModule} from '@angular/material/list';
     AdminHeaderComponent,
     HomeComponent,
     SidenavComponent,
+    UsersListComponent,
+    MentorListComponent,
     
   ],
   providers:[
@@ -31,13 +42,21 @@ import {MatListModule} from '@angular/material/list';
     AdminRoutingModule,
 
     RouterModule,
+    FormsModule,
 
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+
+    AutoCompleteModule,
+    MessagesModule,
+    DialogModule,
+    ButtonModule,
+    TableModule,
+    BadgeModule
   ]
 })
 export class AdminModule { }
