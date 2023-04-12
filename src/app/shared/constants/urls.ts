@@ -16,6 +16,7 @@ const ADMIN_USER=ADMIN_MANAGEMENT+'/user'
 export const GET_ALL_USERS=BASE_URL+ADMIN_USER+'/get-all-users'
 export const BLOCK_USER=BASE_URL+ADMIN_USER+'/block'
 export const UNBLOCK_USER=BASE_URL+ADMIN_USER+'/unblock'
+export const SINGLE_USER=BASE_URL+ADMIN_USER+'/single-user'
 
 const ADMIN_MENTOR=ADMIN_MANAGEMENT+'/mentor'
 export const GET_ALL_MENTORS=BASE_URL+ADMIN_MENTOR+'/get-all-mentors'
@@ -27,7 +28,12 @@ export const ACCEPT_MENTOR=BASE_URL+ADMIN_MENTOR+'/mentor-request-accept'
 export const DECLINE_MENTOR=BASE_URL+ADMIN_MENTOR+'/mentor-request-decline'
 
 
+export const ALL_LANGUAGE=BASE_URL+ADMIN_MANAGEMENT+'/get-all-language'
+export const ADD_LANGUAGE=BASE_URL+ADMIN_MANAGEMENT+'/add-language'
+export const REMOVE_LANGUAGE=BASE_URL+ADMIN_MANAGEMENT+'/remove-language'
 
-
+export const ALL_PROGRAM=BASE_URL+ADMIN_MANAGEMENT+'/get-all-program'
+export const ADD_PROGRAM=BASE_URL+ADMIN_MANAGEMENT+'/add-program'
+export const REMOVE_PROGRAM=BASE_URL+ADMIN_MANAGEMENT+'/remove-program'
 
 

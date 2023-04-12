@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BLOCK_USER, GET_ALL_USERS, UNBLOCK_USER } from 'src/app/shared/constants/urls';
+import { BLOCK_USER, GET_ALL_USERS, SINGLE_USER, UNBLOCK_USER } from 'src/app/shared/constants/urls';
 
 
 @Injectable({
@@ -19,5 +19,9 @@ export class UserServiceService {
   }
   unblockUser(id:any):Observable<any>{
     return this.http.get(UNBLOCK_USER+`/${id}`)
+  }
+  getUserById(id:any):Observable<any>{
+    console.log(id,'user role id');
+    return this.http.get(SINGLE_USER+`/${id}`)
   }
 }

@@ -74,7 +74,7 @@ export class AuthServicesService {
   }
   // For token get
   getToken(){
-     localStorage.getItem('auth_token')
+     return localStorage.getItem('auth_token')
 
   }
   // for Logout the user

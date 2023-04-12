@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit{
   isSubmitted=false;
   error:string=''
   messages2!: Message[];
+  messages!: Message[];
   constructor(private formBuilder:FormBuilder, private authService:AuthServicesService, private router :Router ){}
   ngOnInit(): void {
    this.loginForm=this.formBuilder.group({
@@ -30,11 +31,15 @@ export class LoginComponent implements OnInit{
       
       if(data.status){
         if(data.isAdmin){
+          this.messages = [{ severity: 'success', summary: 'Success', detail: 'Logined Succesfully' }];
+          //settimeout
           this.router.navigateByUrl('/admin/home')
 
         }else if(data.isMentor){
-this.router.navigateByUrl('/mentor/home')
+          this.messages = [{ severity: 'success', summary: 'Success', detail: 'Logined Succesfully' }];
+          this.router.navigateByUrl('/mentor/home')
         }else{
+          this.messages = [{ severity: 'success', summary: 'Success', detail: 'Logined Succesfully' }];
           this.router.navigateByUrl('/user/home')
         }
       }else{

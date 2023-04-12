@@ -1,0 +1,36 @@
+
+
+<div class="card flex justify-content-center">
+    <button class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded" routerLink="/admin/add-course">
+        Add Course
+      </button>
+</div>
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold text-center mt-8 mb-4">Program List</h1>
+        <table class="w-full border-collapse table-auto">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="py-2 px-4 border"></th>
+                    <th class="py-2 px-4 border">Course</th>
+                    <th class="py-2 px-4 border">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-gray-100 hover:bg-gray-200 transition duration-200">
+                    <td class="py-4 px-4 border">
+                        <img class="w-12 h-12 object-cover rounded-full" src="https://via.placeholder.com/48"
+                            alt="User Image">
+                    </td>
+                    <td class="py-4 px-4 border">Jane Smith</td>
+                    <td class="py-4 px-4 border">
+                        <button
+                            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition duration-200"
+                            onclick="deleteUser(2)">Delete</button>
+                            <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md pl-2 ml-2 transition duration-200"
+                            onclick="deleteUser(2)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

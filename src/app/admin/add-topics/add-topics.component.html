@@ -1,0 +1,16 @@
+<form (ngSubmit)="onFormSubmit()">
+    <div *ngFor="let item of items; let i = index" class="mb-4">
+      <div class="flex items-center justify-between">
+        <label for="topic{{i}}" class="block text-gray-700 text-sm font-bold mb-2">Topic {{i + 1}}</label>
+        <button type="button" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out" (click)="removeTopic(i)">Remove</button>
+      </div>
+      <input type="text" id="topic{{i}}" name="topic{{i}}" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline" [(ngModel)]="item.topic" placeholder="Topic">
+      <label for="importance{{i}}" class="block text-gray-700 text-sm font-bold mb-2 mt-4">Importance {{i + 1}}</label>
+      <input type="text" id="importance{{i}}" name="importance{{i}}" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline" [(ngModel)]="item.importance" placeholder="Importance">
+    </div>
+    <div class="flex items-center justify-between">
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out">Submit</button>
+      <button type="button" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out" (click)="removeForm()">Remove</button>
+      <button type="button" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300 ease-in-out" (click)="addForm()">Add Form</button>
+    </div>
+  </form>
