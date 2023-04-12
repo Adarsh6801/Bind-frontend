@@ -35,5 +35,6 @@ export const REMOVE_LANGUAGE=BASE_URL+ADMIN_MANAGEMENT+'/remove-language'
 export const ALL_PROGRAM=BASE_URL+ADMIN_MANAGEMENT+'/get-all-program'
 export const ADD_PROGRAM=BASE_URL+ADMIN_MANAGEMENT+'/add-program'
 export const REMOVE_PROGRAM=BASE_URL+ADMIN_MANAGEMENT+'/remove-program'
+export const ADD_COURSE=BASE_URL+ADMIN_MANAGEMENT+'/add-course'
 
 

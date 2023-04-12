@@ -67,9 +67,8 @@
           id="program"
         >
           <option value="">Select a program</option>
-          <option value="program1">Program 1</option>
-          <option value="program2">Program 2</option>
-          <option value="program3">Program 3</option>
+          <option *ngFor="let program of programs" value="{{program.program}}">{{program.program}}</option>
+          
         </select>
       </div>
     </div>
@@ -86,10 +85,7 @@
             id="category"
           >
             <option value="" disabled selected>Select a category</option>
-            <option value="web">Web Development</option>
-            <option value="mobile">Mobile Development</option>
-            <option value="design">Design</option>
-            <option value="business">Business</option>
+            <option *ngFor="let language of languages" value="{{language.language}}">{{language.language}}</option>
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
