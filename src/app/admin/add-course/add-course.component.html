@@ -1,45 +1,114 @@
-<div class="max-w-md mx-auto mt-8">
-    <form>
+<div class="w-full max-w-lg mx-auto">
+  <form [formGroup]="courseForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <!-- Course Title -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+        Course Title
+      </label>
+      <input
+        formControlName="title"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="title"
+        type="text"
+        placeholder="Enter course title"
+      >
+    </div>
+    <!-- Course Description -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+        Course Description
+      </label>
+      <input
+        formControlName="description"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="description"
+        type="text"
+        placeholder="Enter course description"
+      >
+    </div>
+    <!-- Image Upload -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
+        Image Upload
+      </label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="image"
+        type="file"
+        accept="image/*"
+      (change)="imageUpload($event)"
+      >
+    </div>
+
+    <!-- Video Upload -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="video">
+        Video Upload
+      </label>
+      <input
+        
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="video"
+        type="file"
+        accept="video/*"
+        (change)="videoUpload($event)"
+      >
+    </div>
+
+    <!-- Dropdown Menu Program -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="program">
+        Program
+      </label>
+      <div class="relative">
+        <select
+          formControlName="program"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="program"
+        >
+          <option value="">Select a program</option>
+          <option value="program1">Program 1</option>
+          <option value="program2">Program 2</option>
+          <option value="program3">Program 3</option>
+        </select>
+      </div>
+    </div>
+
+      <!-- Dropdown Menu Language -->
       <div class="mb-4">
-        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Course Name</label>
-        <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline" placeholder="John Doe">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+          Language
+        </label>
+        <div class="relative">
+          <select
+          formControlName="language"
+            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+            id="category"
+          >
+            <option value="" disabled selected>Select a category</option>
+            <option value="web">Web Development</option>
+            <option value="mobile">Mobile Development</option>
+            <option value="design">Design</option>
+            <option value="business">Business</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path
+                d="M10 12l-6-6-1.414 1.414L10 14.828l7.414-7.414L16 6l-6 6z"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
-      <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Program</label>
-      <mat-form-field appearance="fill" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline">
-        <mat-label class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline">Choose Program</mat-label>
-        <mat-select [disabled]="" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline">
-          <mat-option value="option1">Option 1</mat-option>
-          <mat-option value="option2">Option 2</mat-option>
-          <mat-option value="option3">Option 3</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Language</label>
-      <mat-form-field appearance="fill" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline">
-        <mat-label class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline">Choose Language</mat-label>
-        <mat-select [disabled]="" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline">
-          <mat-option value="option1">Option 1</mat-option>
-          <mat-option value="option2">Option 2</mat-option>
-          <mat-option value="option3">Option 3</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div class="mb-4">
-        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Description of the Course</label>
-        <input type="text" class="form-input w-full px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline" placeholder="Write a description">
-      </div>
-      <!-- Image Upload -->
-      <div>
-        <label for="imageFile">Image File:</label>
-        <input type="file" id="imageFile" formControlName="imageFile">
-      </div>
-  
-      <!-- Video Upload -->
-      <div>
-        <label for="videoFile">Video File:</label>
-        <input type="file" id="videoFile" formControlName="videoFile">
-      </div>
-  
-      <div class="flex items-center justify-between">
-        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out" routerLink="/admin/add-topics">Add Topics</button>
-      </div>
-    </form>
-  
+
+    <!-- Submit Button -->
+    <div class="flex items-center justify-between">
+      <button (click)="onSubmit()"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+      >
+        Add Course
+      </button>
+    </div>
+  </form>
+</div>
