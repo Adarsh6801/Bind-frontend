@@ -7,9 +7,10 @@ import {
 } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { CourseService } from '../service/course.service';
-import { response } from 'express';
+import { Message } from 'primeng/api';
 import { LanguageService } from '../service/language.service';
 import { ProgramService } from '../service/program.service';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-add-course',
@@ -23,13 +24,15 @@ export class AddCourseComponent implements OnInit {
   videoFile!: File;
   programs!: any[];
   languages!: any[];
-
+  messages!: Message[];
+  buttonLoader:boolean=false;
   constructor(
     private fb: FormBuilder,
     private firestorage: AngularFireStorage,
     private courseService: CourseService,
     private langService: LanguageService,
-    private progService: ProgramService
+    private progService: ProgramService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -52,6 +55,7 @@ export class AddCourseComponent implements OnInit {
   }
   async onSubmit() {
     // Handle form submission
+    this.buttonLoader=true;
     const course_image_path = `courseImage/${this.imageFile.name}`;
     const course_video_path = `courseVideo/${this.videoFile.name}`;
 
@@ -74,7 +78,21 @@ export class AddCourseComponent implements OnInit {
     this.courseService
       .addCourse(this.courseForm.value)
       .subscribe((response) => {
-        console.log(response);
+        console.log(response,'course response...');
+        
+        if(response.status){
+          this.messages = [{ severity: 'success', summary: 'Success', detail: response.msg }];
+          setTimeout(()=>{
+            this.router.navigateByUrl('/admin/add-topics')
+          },3000)
+        }
+        else{
+          this.buttonLoader=false;
+          this.messages = [{ severity: 'warn', summary: 'Warning', detail: response.msg }];
+          setTimeout(()=>{
+            this.messages=[]
+          },3000)
+        }
       });
   }
   getAllProgram(){

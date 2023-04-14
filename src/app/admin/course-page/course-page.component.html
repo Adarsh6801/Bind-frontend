@@ -15,17 +15,17 @@
                     <th class="py-2 px-4 border">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let course of courses">
                 <tr class="bg-gray-100 hover:bg-gray-200 transition duration-200">
                     <td class="py-4 px-4 border">
-                        <img class="w-12 h-12 object-cover rounded-full" src="https://via.placeholder.com/48"
+                        <img class="w-12 h-12 object-cover rounded-full" src="{{course.imageUrl}}"
                             alt="User Image">
                     </td>
-                    <td class="py-4 px-4 border">Jane Smith</td>
+                    <td class="py-4 px-4 border">{{course.courseName}}</td>
                     <td class="py-4 px-4 border">
                         <button
                             class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition duration-200"
-                            onclick="deleteUser(2)">Delete</button>
+                            (click)="deleteCourse(course._id)">Delete</button>
                             <button
                             class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md pl-2 ml-2 transition duration-200"
                             onclick="deleteUser(2)">Edit</button>
