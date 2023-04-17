@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthServicesService } from 'src/app/auth/auth-services.service';
 import { AuthModule } from '../auth/auth.module';
 import { CarouselComponent } from './carousel/carousel.component';
+import { CoursesPageComponent } from './courses-page/courses-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     HomeComponent,
     FooterComponent,
     CarouselComponent,
+    CoursesPageComponent,
     
   ],
   providers: [

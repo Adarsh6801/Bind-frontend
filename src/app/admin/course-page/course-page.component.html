@@ -1,5 +1,8 @@
 
 
+<div class="card">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>
 <div class="card flex justify-content-center">
     <button class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded" routerLink="/admin/add-course">
         Add Course
@@ -27,8 +30,9 @@
                             class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition duration-200"
                             (click)="deleteCourse(course._id)">Delete</button>
                             <button
+                            routerLink="/admin/course/edit-course/{{course._id}}"
                             class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md pl-2 ml-2 transition duration-200"
-                            onclick="deleteUser(2)">Edit</button>
+                            >Edit</button>
                     </td>
                 </tr>
             </tbody>

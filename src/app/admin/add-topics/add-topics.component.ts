@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CourseService } from '../service/course.service';
+import { Message } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-topics',
@@ -8,10 +10,12 @@ import { CourseService } from '../service/course.service';
   styleUrls: ['./add-topics.component.css'],
 })
 export class AddTopicsComponent {
+  messages!: Message[];
+
   topics: any[] = [
     { topic: '', discription: '', subtopics: [{ subtopic: '' }] },
   ];
-  constructor(private topicService: CourseService) {}
+  constructor(private topicService: CourseService,private router : Router) {}
 
   onFormSubmit() {
     const topics={
@@ -21,6 +25,13 @@ export class AddTopicsComponent {
     
     this.topicService.addTopics(topics).subscribe((response) => {
       console.log(response, 'response');
+      if(response.status){
+        this.messages = [{ severity: 'success', summary: 'Success', detail: response.msg }];
+        setTimeout(()=>{
+          this.router.navigateByUrl('/admin/course')
+        },3000)
+        
+      }
     });
     console.log(this.topics,"topics");
     

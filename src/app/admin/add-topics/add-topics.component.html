@@ -1,3 +1,7 @@
+
+<div class="card">
+  <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>
 <form (ngSubmit)="onFormSubmit()">
   <div *ngFor="let topic of topics; let topicIndex = index" class="mb-4">
     <div class="flex items-center justify-between">

@@ -12,6 +12,7 @@ import { AddTopicsComponent } from './add-topics/add-topics.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
 import { LanguagePageComponent } from './language-page/language-page.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'add-topics', component: AddTopicsComponent },
       { path: 'user/:id', component: UserPageComponent },
       { path: 'mentor-subscription', component: SubscriptionPageComponent },
+      { path: 'course/edit-course/:id',component: EditCourseComponent },
     ],
     canActivate: [AdminAuthGuard],
   },

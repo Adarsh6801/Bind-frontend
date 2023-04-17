@@ -44,6 +44,7 @@ import { LanguagePageComponent } from './language-page/language-page.component';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environment/environment';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { environment } from 'src/environment/environment';
     AddTopicsComponent,
     SubscriptionPageComponent,
     LanguagePageComponent,
+    EditCourseComponent,
   ],
   providers: [AdminAuthGuard],
   imports: [
