@@ -10,6 +10,7 @@ import { HomeComponent } from './user/home/home.component';
 import { UserComponent } from './user/user.component';
 import { ForgotChagePassComponent } from './auth/forgot-chage-pass/forgot-chage-pass.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { CoursesPageComponent } from './user/courses-page/courses-page.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     path:'user',
     component:UserComponent,
     children:[
-      { path:'home',component:HomeComponent }
+      { path:'home',component:HomeComponent },
+      {path:'courses', component:CoursesPageComponent},
       
     ],canActivate:[AuthGuardGuard]
   },

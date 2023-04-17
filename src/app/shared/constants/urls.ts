@@ -41,3 +41,4 @@ export const DELETE_COURSE = BASE_URL + ADMIN_MANAGEMENT + '/delete-course';
 export const ADD_TOPICS = BASE_URL + ADMIN_MANAGEMENT + '/add-topic';
 export const GET_COURSE_BY_ID = BASE_URL + ADMIN_MANAGEMENT + '/edit-course';
 export const EDIT_COURSE=BASE_URL+ADMIN_MANAGEMENT+'/edit-course';
+

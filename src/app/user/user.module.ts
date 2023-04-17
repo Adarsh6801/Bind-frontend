@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { TableModule } from 'primeng/table';
 
+
 import {MatIconModule} from '@angular/material/icon';
 import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
@@ -17,6 +18,7 @@ import { AuthServicesService } from 'src/app/auth/auth-services.service';
 import { AuthModule } from '../auth/auth.module';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CoursesPageComponent } from './courses-page/courses-page.component';
+import { AdminModule } from '../admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,11 @@ import { CoursesPageComponent } from './courses-page/courses-page.component';
     
   ],
   providers: [
-    AuthServicesService
+    AuthServicesService,
   ],
   imports: [
     AuthModule,
+    AdminModule,
     CommonModule,
     RouterModule,
     MatIconModule,
