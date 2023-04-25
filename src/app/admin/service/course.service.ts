@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ADD_COURSE, ADD_TOPICS, ALL_COURSE, DELETE_COURSE, EDIT_COURSE, GET_COURSE_BY_ID,  } from 'src/app/shared/constants/urls';
+import { ADD_COURSE, ADD_TOPICS, ALL_COURSE, DELETE_COURSE, EDIT_COURSE, GET_COURSE_BY_ID, GET_USER,  } from 'src/app/shared/constants/urls';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +31,9 @@ export class CourseService {
   updatCourse(data:any):Observable<any>{
     console.log(data,'dataaa');
     return this.http.post(EDIT_COURSE,data)
+  }
+  checkUserHasCurrentCourse():Observable<any>{
+    console.log("hello");
+  return  this.http.get(GET_USER);
   }
 }

@@ -1,0 +1,9 @@
+div.relative {
+    height: 25vh;
+  }
+  
+  div.relative img {
+    height: 25vh;
+    object-fit: cover;
+  }
+  

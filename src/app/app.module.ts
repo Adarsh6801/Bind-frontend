@@ -18,6 +18,7 @@ import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { TokenInterceptorService } from './interceptor/token-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
+import { CourseSelectGuard } from './guards/course-select.guard';
 
 
 
@@ -48,6 +49,7 @@ import { AdminModule } from './admin/admin.module';
     ],
   providers: [
     AuthGuardGuard,
+    CourseSelectGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

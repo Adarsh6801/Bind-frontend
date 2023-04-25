@@ -22,7 +22,6 @@ isMentor:boolean=false;
         this.user=response.user;
         this.isMentor=response.isMentor;
         console.log(this.user,'user');
-        
       })
     })
   }

@@ -10,11 +10,13 @@ export const SOCIAL_LOGIN_URL = BASE_URL + AUTH_USER_MENTOR + '/social-login';
 
 const ADMIN_MANAGEMENT = '/admin';
 
+
 const ADMIN_USER = ADMIN_MANAGEMENT + '/user';
 export const GET_ALL_USERS = BASE_URL + ADMIN_USER + '/get-all-users';
 export const BLOCK_USER = BASE_URL + ADMIN_USER + '/block';
 export const UNBLOCK_USER = BASE_URL + ADMIN_USER + '/unblock';
 export const SINGLE_USER = BASE_URL + ADMIN_USER + '/single-user';
+
 
 const ADMIN_MENTOR = ADMIN_MANAGEMENT + '/mentor';
 export const GET_ALL_MENTORS = BASE_URL + ADMIN_MENTOR + '/get-all-mentors';
@@ -42,3 +44,16 @@ export const ADD_TOPICS = BASE_URL + ADMIN_MANAGEMENT + '/add-topic';
 export const GET_COURSE_BY_ID = BASE_URL + ADMIN_MANAGEMENT + '/edit-course';
 export const EDIT_COURSE=BASE_URL+ADMIN_MANAGEMENT+'/edit-course';
 
+const USER_MANAGEMENT='/user'
+export const GET_PROGRAMS_BY_ID=BASE_URL+USER_MANAGEMENT+'/program'
+export const COURSE_VIEW_BY_ID=BASE_URL+USER_MANAGEMENT+'/course-view'
+
+export const GET_COURSE_WITHOUT_MENTOR=BASE_URL+USER_MANAGEMENT+'/get-course-without-mentor'
+export const GET_COURSE_WITH_MENTOR=BASE_URL+USER_MANAGEMENT+'/get-course-with-mentor'
+export const USER_HAS_CURRENT_COURSE =BASE_URL+USER_MANAGEMENT+'/checking-user-current-course'
+export const GET_USER =BASE_URL+USER_MANAGEMENT+'/get-user'
+
+export const GET_CURRENT_COURSE=BASE_URL+USER_MANAGEMENT+'/get-current-course'
+export const EXIT_FROM_COURSE=BASE_URL+USER_MANAGEMENT+'/exit-course'
+
+export const ORDER =BASE_URL+USER_MANAGEMENT+'/mentor-subscription'
